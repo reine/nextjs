@@ -9,7 +9,7 @@ WORKDIR ${APP_WORKDIR}
 COPY package*.json ./
 
 # Build the app
-RUN npm ci --only=production
+RUN npm install
 
 # Copy source files
 COPY . .
