@@ -11,7 +11,7 @@ COPY package*.json ./
 # Build the app
 ARG buildtime_env="production"
 ENV APP_ENV=${buildtime_env}
-RUN if [ "$APP_ENV" = "production" ] ; then RUN npm ci --only=production; else RUN npm install; fi
+RUN if [ "$APP_ENV" = "production" ] ; then npm ci --only=production ; else npm install ; fi
 
 # Copy source files
 COPY . .
