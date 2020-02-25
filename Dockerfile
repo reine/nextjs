@@ -9,9 +9,7 @@ WORKDIR ${APP_WORKDIR}
 COPY package*.json ./
 
 # Build the app
-ARG buildtime_env="production"
-ENV APP_ENV=${buildtime_env}
-RUN if [ "$APP_ENV" = "production" ] ; then npm ci --only=production ; else npm install ; fi
+RUN npm ci --only=production
 
 # Copy source files
 COPY . .
