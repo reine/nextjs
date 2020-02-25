@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:alpine
 
 # Set working directory. All paths will be relative to WORKDIR.
 ARG buildtime_workdir="/usr/src/app"
