@@ -7,13 +7,14 @@ WORKDIR ${APP_WORKDIR}
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
+
+# Build the app
+ARG buildtime_env="production"
+ENV APP_ENV=${buildtime_env}
+RUN if [ "$APP_ENV" = "production" ] ; then RUN npm ci --only=production; else RUN npm install; fi
 
 # Copy source files
 COPY . .
-
-# Build the app
-RUN npm run build
 
 # Run the app
 CMD [ "npm", "start" ]
