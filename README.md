@@ -18,3 +18,15 @@ yarn start
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+## Environment Variables
+
+You can override the default working directory of ```/usr/src/app``` to suit your project's app directory.
+
+```bash
+# Sample usage
+node:
+    image: sreine/nextjs:latest
+        environment:
+            - APP_WORKDIR="/home/user/app"
+```
